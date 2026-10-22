@@ -28,8 +28,8 @@ body {
     /* use the device's clean built-in font, which loads instantly */
     line-height: 1.6;
     /* space between lines, easier to read */
+    /* off-white text, softer on the eyes than pure white */
     color: var(--color-text);
-    /* near-black text, softer on the eyes than pure black */
     background: var(--color-bg);
 }
 
@@ -43,7 +43,7 @@ main {
     /* breathing room on the sides, so text doesn't touch phone edges */
 }
 
-/* Heading get the bold display font */
+/* Headings get the bold display font */
 h1,
 h2,
 h3 {
@@ -55,5 +55,37 @@ h3 {
 /* Links get the accent color */
 a {
     color: var(--color-accent);
-    text-decoration: none;
+}
+
+/* Hero: fills the first screen, everything centered */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+/* Your name: big and bold */
+#hero h1 {
+    font-size: clamp(2.5rem, 10vw, 5rem);
+    font-weight: 800;
+    margin: 0;
+}
+
+/* Tagline: softer color */
+#hero p {
+    font-size: 1.125rem;
+    color: var(--color-muted);
+    margin: 0;
+}
+
+/* Links in a row that wraps on small screens */
+.hero-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }
