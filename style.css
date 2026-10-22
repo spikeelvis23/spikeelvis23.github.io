@@ -1,17 +1,25 @@
 /* Design tokens: change a color here and it updates everywhere */
 :root {
-    --color-bg: #0a0e27;
-    /* dark navy background */
-    --color-text: #f2f2f2;
-    /* off-white text, easier on the eyes than pure white */
-    --color-muted: #a8adc4;
-    /* softer text for less important info */
-    --color-accent: #f15a22;
-    /* orange, used for links and highlights */
-    --font-heading: "Syne", system-ui, sans-serif;
-    --font-body: system-ui, sans-serif;
-}
+    /* Colors, named by their job so you can swap them safely */
+    --color-bg: #0D1B2A;
+    /* ink navy: page background */
+    --color-surface: #1B263B;
+    /* harbor: cards/sections */
+    --color-accent: #9c6b4E;
+    /* slate orange, lightened so dark text on it is readable */
+    --color-secondary: #3F7C85;
+    /* ocean: borders, secondary accents */
+    --color-ember: #3B1A0E;
+    /* dark warm brown for gradients */
+    --color-text: #A8DADC;
+    /* seafoam: main text on dark */
+    --color-muted: #8AA4B0;
+    /* softer text, like the tagline */
 
+    /* Fonts: built-in system fonts, which load instantly */
+    --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
 
 /* Make widths include padding and borders, so sizes are predictable */
 *,
@@ -25,10 +33,8 @@ body {
     margin: 0;
     /* remove the browser's default gap around the page */
     font-family: var(--font-body);
-    /* use the device's clean built-in font, which loads instantly */
     line-height: 1.6;
     /* space between lines, easier to read */
-    /* off-white text, softer on the eyes than pure white */
     color: var(--color-text);
     background: var(--color-bg);
 }
@@ -36,17 +42,17 @@ body {
 /* Keep content from stretching too wide on big screens */
 main {
     max-width: 800px;
-    ...
+    margin: 0 auto;
+    /* center it */
 }
 
-
-/* Headings get the bold display font */
+/* Headings */
 h1,
 h2,
 h3 {
     font-family: var(--font-heading);
     line-height: 1.1;
-    /*big headings look better with tighter lines */
+    /* big headings look better with tighter lines */
 }
 
 /* Links get the accent color */
@@ -68,6 +74,7 @@ a {
 /* Your name: big and bold */
 #hero h1 {
     font-size: clamp(2.5rem, 10vw, 5rem);
+    /* scales with screen width, within limits */
     font-weight: 800;
     margin: 0;
 }
@@ -87,7 +94,7 @@ a {
     gap: 1rem;
 }
 
-/* Buttons */
+/* Buttons: shared base styles */
 .btn {
     display: inline-block;
     padding: 0.5rem 1rem;
@@ -96,15 +103,16 @@ a {
     font-weight: 600;
 }
 
-/* Main button; solid orange with dark text */
+/* Main button: solid orange with dark text */
 .btn-primary {
     background-color: var(--color-accent);
-    color: var(--color-text);
+    color: var(--color-bg);
 }
 
-/* Backup button; just the outline, with light text */
+/* Backup button: transparent with an outline and light text */
 .btn-secondary {
-    background-color: var(--color-muted);
+    background-color: transparent;
+    border: 2px solid var(--color-secondary);
     color: var(--color-text);
 }
 
@@ -117,10 +125,30 @@ section {
     justify-content: center;
 }
 
-/* Keep the text inside each page from getting too wide */
+/* Keep the text inside each section from getting too wide */
 section>* {
     width: 100%;
     max-width: 800px;
     margin-left: auto;
     margin-right: auto;
+}
+
+/* About: ink navy fading into harbor */
+#about {
+    background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-surface) 100%);
+}
+
+/* Projects: harbor fading into dark ember */
+#projects {
+    background: linear-gradient(180deg, var(--color-surface) 0%, var(--color-ember) 100%);
+}
+
+/* Skills: dark ember fading into ink navy */
+#skills {
+    background: linear-gradient(180deg, var(--color-ember) 0%, var(--color-bg) 100%);
+}
+
+/* Contact: ocean teal fading into ink navy */
+#contact {
+    background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-bg) 100%);
 }
