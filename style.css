@@ -36,12 +36,9 @@ body {
 /* Keep content from stretching too wide on big screens */
 main {
     max-width: 800px;
-    /* lines stay a comfortable reading length */
-    margin: 0 auto;
-    /* "auto" on left and right centers it */
-    padding: 1.5rem;
-    /* breathing room on the sides, so text doesn't touch phone edges */
+    ...
 }
+
 
 /* Headings get the bold display font */
 h1,
@@ -88,4 +85,42 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     gap: 1rem;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Main button; solid orange with dark text */
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-text);
+}
+
+/* Backup button; just the outline, with light text */
+.btn-secondary {
+    background-color: var(--color-muted);
+    color: var(--color-text);
+}
+
+/* Every section is its own full-screen "page" */
+section {
+    min-height: 100vh;
+    padding: 4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Keep the text inside each page from getting too wide */
+section>* {
+    width: 100%;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
