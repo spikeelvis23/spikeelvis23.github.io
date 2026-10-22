@@ -1,0 +1,59 @@
+/* Design tokens: change a color here and it updates everywhere */
+:root {
+    --color-bg: #0a0e27;
+    /* dark navy background */
+    --color-text: #f2f2f2;
+    /* off-white text, easier on the eyes than pure white */
+    --color-muted: #a8adc4;
+    /* softer text for less important info */
+    --color-accent: #f15a22;
+    /* orange, used for links and highlights */
+    --font-heading: "Syne", system-ui, sans-serif;
+    --font-body: system-ui, sans-serif;
+}
+
+
+/* Make widths include padding and borders, so sizes are predictable */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Base page styles */
+body {
+    margin: 0;
+    /* remove the browser's default gap around the page */
+    font-family: var(--font-body);
+    /* use the device's clean built-in font, which loads instantly */
+    line-height: 1.6;
+    /* space between lines, easier to read */
+    color: var(--color-text);
+    /* near-black text, softer on the eyes than pure black */
+    background: var(--color-bg);
+}
+
+/* Keep content from stretching too wide on big screens */
+main {
+    max-width: 800px;
+    /* lines stay a comfortable reading length */
+    margin: 0 auto;
+    /* "auto" on left and right centers it */
+    padding: 1.5rem;
+    /* breathing room on the sides, so text doesn't touch phone edges */
+}
+
+/* Heading get the bold display font */
+h1,
+h2,
+h3 {
+    font-family: var(--font-heading);
+    line-height: 1.1;
+    /*big headings look better with tighter lines */
+}
+
+/* Links get the accent color */
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+}
