@@ -18,7 +18,8 @@
 
     /* Fonts: built-in system fonts, which load instantly */
     --font-body: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    --font-heading: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    /* Syne is loaded from Google Fonts in index.html; system fonts are the backup */
+    --font-heading: "Syne", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
 }
 
 /* Make widths include padding and borders, so sizes are predictable */
@@ -151,4 +152,30 @@ section>* {
 /* Contact: ocean teal fading into ink navy */
 #contact {
     background: linear-gradient(180deg, var(--color-secondary) 0%, var(--color-bg) 100%);
+}
+/* Project card: a darker box so each project stands out */
+.project-card {
+    background: rgba(13, 27, 42, 0.55);
+    border: 1px solid var(--color-secondary);
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Small "In progress" label next to the project name */
+.status {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: var(--color-accent);
+    color: var(--color-bg);
 }
