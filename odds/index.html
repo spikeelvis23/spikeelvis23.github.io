@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odds Board | Spike</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>Odds Board</h1>
+            <p class="tagline">Moneyline odds from US sportsbooks. Best price for each team is highlighted.</p>
+        </header>
+
+        <div class="controls">
+            <label for="sport">Sport</label>
+            <!-- Keep these values in sync with ALLOWED_SPORTS in worker/src/index.js -->
+            <select id="sport">
+                <option value="upcoming">Next games (all sports)</option>
+                <option value="americanfootball_nfl">NFL</option>
+                <option value="basketball_nba">NBA</option>
+                <option value="baseball_mlb">MLB</option>
+                <option value="icehockey_nhl">NHL</option>
+                <option value="soccer_epl">Premier League</option>
+            </select>
+            <button id="refresh" type="button">Refresh</button>
+        </div>
+
+        <!-- aria-live makes screen readers announce status changes -->
+        <p id="status" aria-live="polite"></p>
+        <div id="games"></div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+
+</html>

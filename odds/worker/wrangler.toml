@@ -1,0 +1,16 @@
+# Settings for the Cloudflare Worker. "wrangler" is Cloudflare's command-line tool.
+name = "odds-worker"
+main = "src/index.js"
+compatibility_date = "2025-09-01"
+
+# KV = Cloudflare's simple key/value storage. This is where the 10-minute cache lives.
+# Run:  npx wrangler kv namespace create ODDS_CACHE
+# then paste the id it prints below.
+[[kv_namespaces]]
+binding = "ODDS_CACHE"
+id = "PASTE_YOUR_KV_ID_HERE"
+
+# Websites allowed to call this Worker from the browser (comma-separated).
+# These are not secret. The API key is NOT here; it's stored with `wrangler secret put`.
+[vars]
+ALLOWED_ORIGINS = "https://spikeelvis23.github.io,http://localhost:8000,http://127.0.0.1:8000"

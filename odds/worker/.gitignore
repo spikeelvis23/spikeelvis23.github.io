@@ -1,0 +1,4 @@
+# .dev.vars holds your real API key for local testing. Never commit it.
+.dev.vars
+.wrangler/
+node_modules/
